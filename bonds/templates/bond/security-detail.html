@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Securities</title>
+    <link rel="shortcut icon" href="{% static 'front/assets/images/favicon.png' %}" type="image/x-icon">
+    
+
+    <link rel="stylesheet" href="{% static 'front/assets/css/icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/red-color.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/yellow-color.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/responsive.css' %}">
+</head>
+<body itemscope>
+    <a href="#" id="top"></a>
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <header class="stick">
+            <div class="topbar">
+                <div class="container">
+                    <!-- top bar -->
+                    <div class="topbar-register">
+                        {% if request.user.is_authenticated %}
+                        <a class="" href="#" title="Login" itemprop="url">{{ request.user.username}}</a>
+                        {% else %} 
+                        <a class="" href="{% url 'signpage'%}" title="Login" itemprop="url">LOGIN / REGISTER</a> 
+                        {% endif %}
+                    </div>
+                    
+                </div>                
+            </div><!-- Topbar -->
+            <div class="logo-menu-sec">
+                <div class="container">
+                    <!-- food fox logo -->
+                    <div style="padding-top: 0.8em;" class="logo"><h1 itemprop="headline"><a href="{% url 'mainpage' %}" title="Home" itemprop="url">BONDS</a></h1></div>
+                    <!-- navigation bar -->
+                    <nav>
+                        <div class="menu-sec">
+                            <ul>
+                                <li class="menu-item-has-children"><a href="{% url 'mainpage' %}" title="HOMEPAGES" itemprop="url"><span class="red-clr">Home</span>HOMEPAGE</a>
+                                    <!-- <ul class="sub-dropdown">
+                                        <li><a href="index-2.html" title="HOMEPAGE 1" itemprop="url">HOMEPAGE 1</a></li>
+                                        <li><a href="index.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
+                                    </ul> -->
+                                </li>
+                                <li class="menu-item-has-children"><a href="{% url 'mainpage' %}" title="RESTAURANTS" itemprop="url"><span class="red-clr">Find Securities</span>SECURITIES</a>
+                                   
+                                </li>
+                                <li class="menu-item-has-children"><a href="{% url 'trademainpage' %}" title="RESTAURANTS" itemprop="url"><span class="red-clr">Find Trades</span>Trades</a>
+                                   
+                                </li>
+                                
+                            </ul>
+                            <!--
+                            <a class="red-bg brd-rd4" href="register-reservation.html" title="Register" itemprop="url">REGISTER RESTAURANT</a> -->
+                        </div>
+                    </nav><!-- Navigation -->
+                </div>
+            </div><!-- Logo Menu Section -->
+        </header><!-- Header -->
+
+
+        <section>
+            <div class="block">
+                <div class="fixed-bg" style="background-image: url({% static 'front/assets/images/topbg.jpg' %});"></div>
+                <div class="page-title-wrapper text-center">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="page-title-inner">
+                            <h1 itemprop="headline">Search Your Securities here</h1>
+                            <!--
+                            <form class="restaurant-search-form brd-rd2">
+                                <div class="row mrg10">
+                                    <div class="col-md-6 col-sm-5 col-lg-5 col-xs-12">
+                                        <div class="input-field brd-rd2"><input class="brd-rd2" type="text" placeholder="Restaurant Name"></div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
+                                        <div class="input-field brd-rd2"><i class="fa fa-map-marker"></i><input class="brd-rd2" type="text" placeholder="Search Location"><i class="fa fa-location-arrow"></i></div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-3 col-lg-3 col-xs-12">
+                                        <button class="brd-rd2 red-bg" type="submit">SEARCH</button>
+                                    </div>
+                                </div>
+                            </form> -->
+                            <div class="restaurant-searching style2 text-center">
+                    <div class="restaurant-searching-inner">
+                        <!--<span>Delicious <i>Food</i> </span>
+                        <h2 itemprop="headline">Book Your Table</h2> -->
+                        <form class="restaurant-search-form2 brd-rd30">
+                            <input id="tag" class="brd-rd30" type="text" placeholder="Type Keyword">
+                            <button id="get" class="brd-rd30 red-bg" type="submit" name="rest" value="" onclick="document.querySelector('#get').value = document.querySelector('#tag').value" >SEARCH</button>
+                        </form>
+                    </div>
+                </div><!-- Restaurant Searching -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bread-crumbs-wrapper">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Restaurant</a></li>
+                    <li class="breadcrumb-item active">Restaurant Details</li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <div class="block gray-bg top-padd30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="sec-box">
+                                <div class="sec-wrapper">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-12 col-lg-8">
+                                            <div class="restaurant-detail-wrapper">
+                                                <div class="restaurant-detail-info">
+                                                    <div class="restaurant-detail-thumb">
+                                                        <ul class="restaurant-detail-img-carousel">
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-big-img1-1.jpg' %}" alt="restaurant-detail-big-img1-1.jpg" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-big-img1-2.jpg' %}" alt="restaurant-detail-big-img1-2.jpg" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-big-img1-3.jpg' %}" alt="restaurant-detail-big-img1-3.jpg" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-big-img1-4.jpg' %}" alt="restaurant-detail-big-img1-4.jpg" itemprop="image"></li>
+                                                        </ul>
+                                                        <ul class="restaurant-detail-thumb-carousel">
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-small-img1-1.jpg' %}" alt="restaurant-detail-small-img1-1.jpg" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-small-img1-2.jpg' %}" alt="restaurant-detail-small-img1-2.jpg" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-small-img1-3.jpg' %}" alt="restaurant-detail-small-img1-3.jpg" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/restaurant-detail-small-img1-4.jpg' %}" alt="restaurant-detail-small-img1-4.jpg" itemprop="image"></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="restaurant-detail-title">
+                                                        <h1 itemprop="headline">{{rest.Issuer}}</h1>
+                                                        <div class="info-meta">
+                                                            <ul>
+                                                            <li><span style="color: green">{{rest.CUSIP}}</span></li>
+                                                            <li><span><a href="#" title="" itemprop="url">Face Value</a>, <a href="#" title="" itemprop="url">{{rest.FaceValue}}</a></span></li>
+                                                            <li><span><a href="#" title="" itemprop="url">ISIN</a>, <a href="#" title="" itemprop="url">{{rest.ISIN}}</a></span></li>
+                                                            <li><span><a href="#" title="" itemprop="url">Maturity Date</a>, <a href="#" title="" itemprop="url">{{rest.MaturityDate}}</a></span></li>
+                                                            <li><span><a href="#" title="" itemprop="url">Coupon</a>, <a href="#" title="" itemprop="url">{{rest.Coupon}}</a></span></li>
+                                                            <li><span><a href="#" title="" itemprop="url">Type</a>, <a href="#" title="" itemprop="url">{{rest.get_type_details}}</a></span></li>
+                                                            <li><span><a href="#" title="" itemprop="url">Status</a>, <a href="#" title="" itemprop="url">{{rest.get_status_details}}</a></span></li>
+                                                        </ul>
+                                                        </div>
+
+                                                        <div class="rating-wrapper">
+                                                            <a class="gradient-brd brd-rd2" href="#" title="" itemprop="url"><i class="fa fa-star"></i> Type <i>{{rest.Type}}</i></a>
+                                                            <div class="rate-share brd-rd5">
+
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+        
+                                                                
+            
+        
+       
+<footer>
+            <div class="block top-padd80 bottom-padd80 dark-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="footer-data">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                            <!-- <div class="logo"><h1 itemprop="headline"><a href="#" title="Home" itemprop="url"><img src="assets/images/logo.png" alt="logo.png" itemprop="image"></a></h1></div> -->
+                                            <h1 style="color: white;">BONDS</h1>
+                                            <p itemprop="description">BONDS is a website where you can search & monitor your trades ! </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                            <h4 class="widget-title" itemprop="headline">Options</h4>
+                                            <ul>
+                                                <li><a href="{% url 'mainpage' %}" title="" itemprop="url">Home</a></li>
+                                        
+                                                <!-- <li><a href="{% url 'aboutpage' %}" title="" itemprop="url">About us</a></li> -->
+                                                <li><a href="{% url 'mainpage' %}" title="" itemprop="url">Search Securities</a></li>
+                                                <li><a href="#top" title="" itemprop="url">Back to top</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
+                                            <h4 class="widget-title" itemprop="headline">Extras</h4>
+                                            <ul>
+                                                <li><a href="#" title="" itemprop="url">Offers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                            <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
+                                            <ul>
+                                               <li><i class="fa fa-map-marker"></i> Group 36 Coding Challenge</li>
+                                               <li><i class="fa fa-phone"></i> +91 86XXXXXX21</li>
+                                               <li><i class="fa fa-envelope"></i>group36@db.com</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Footer Data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- footer -->
+
+
+    </main><!-- Main Wrapper -->
+
+    <script src="{% static 'front/assets/js/jquery.min.js' %} "></script>
+    <script src="{% static 'front/assets/js/bootstrap.min.js' %} "></script>
+    <script src="{% static 'front/assets/js/plugins.js' %} "></script>
+    <script src="{% static 'front/assets/js/main.js' %} "></script>
+    <script type="text/javascript">
+        
+        function sub_mit(){
+            document.querySelector('#id_slot').value = document.querySelector('input[placeholder="NAME"]').value + '#' +document.querySelector('input[type="email"').value +'#' +  document.querySelector('.timepicker').value +'#'+ document.querySelector('.datepicker').value +'#' +document.querySelector('textarea[placeholder="Your Instruction"]').value +'#' +'{{rest.id}}';
+
+            document.querySelector('#id_seats').value = document.querySelector('#nseats').value  ;
+
+            document.querySelector('#booksubmit').click() ;
+        }
+
+        function go(value) {
+            
+        }
+    </script>
+</body> 
+
+</html>

@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "front/login.css" %}' />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+  </head>
+  <body onload = 'change(event)' >
+    <div id="custom-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)), url('https://miro.medium.com/v2/resize:fit:1200/1*gjiPzzix6QfsjHa_q4CksA.gif'); opacity: 1;"></div>
+    <br>
+  	<div id="xav" style="text-align: center;"><h1>Bonds</h1></div> <br><br>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+
+
+
+
+
+        <form method="post">{% csrf_token %}
+          <h1 style="margin-bottom: 50px">Create Account</h1>
+          {{form2}}
+          <button type="submit" name="action" value="signup" >Sign Up</button>
+        </form>
+
+
+
+
+
+
+      </div>
+      <div class="form-container sign-in-container">
+
+
+
+
+        <form  method="post">{% csrf_token %}
+          <h1 style="margin-bottom: 50px">Sign in</h1>
+          {{ form1 }}
+          <br>
+          <button type="submit" name="action" value="login">Sign In</button>
+        </form>
+
+
+
+
+
+
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+
+      const signUpButton = document.getElementById("signUp");
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
+
+
+
+signUpButton.addEventListener("click", function(e){
+  container.classList.add("right-panel-active")
+  document.querySelector('title').innerHTML = 'Sign up'
+} );
+
+signInButton.addEventListener("click", function(e){
+  container.classList.remove("right-panel-active")
+  document.querySelector('title').innerHTML = 'Sign in'
+} );
+
+ 
+
+
+function change(e) {
+
+  let user1 = document.querySelector('.sign-in-container form #id_username')
+if (user1.value === ''){ container.classList.add("right-panel-active")
+  document.querySelector('title').innerHTML = 'Sign up'
+}
+
+let user2 = document.querySelector('.sign-up-container form #id_username')
+if (user2.value === ''){container.classList.remove("right-panel-active")
+  document.querySelector('title').innerHTML = 'Sign in'
+}
+
+}
+
+
+
+
+
+let user1 = document.querySelector('.sign-up-container form #id_username')
+if (user1 !== null){document.querySelector('.sign-up-container form #id_username').placeholder = 'Username'
+}
+
+let user2 = document.querySelector('.sign-in-container form #id_username')
+if (user2 !== null){document.querySelector('.sign-in-container form #id_username').placeholder = 'Username'
+}
+
+let pass = document.getElementById('id_password') ;
+if (pass !== null){document.querySelector('#id_password').placeholder = 'Password'
+}
+
+let email = document.getElementById('id_email') ;
+if (email !== null){document.querySelector('#id_email').placeholder = 'Email'
+}
+
+let pass1 = document.getElementById('id_password1') ;
+if (pass1 !== null){document.querySelector('#id_password1').placeholder = 'Password'
+}
+
+let pass2 = document.getElementById('id_password2') ;
+if (pass2 !== null){document.querySelector('#id_password2').placeholder = 'Password confirmation'
+}
+
+
+
+errors= document.getElementsByClassName('errorlist');
+
+let i=0
+for (i=0; i<errors.length ; i++) {
+
+alert(errors[i].innerText) ;
+
+}
+
+
+    </script>
+  </body>
+</html>

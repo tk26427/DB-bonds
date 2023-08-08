@@ -1,0 +1,488 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Securities</title>
+    <link rel="shortcut icon" href="{% static 'front/assets/images/favicon.png' %}" type="image/x-icon">
+    
+
+    <link rel="stylesheet" href="{% static 'front/assets/css/icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/red-color.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/yellow-color.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/responsive.css' %}">
+</head>
+<body itemscope>
+    <a href="#" id="top"></a>
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <header class="stick">
+            <div class="topbar">
+                <div class="container">
+                    <!-- top bar -->
+                    <div class="topbar-register">
+                        {% if request.user.is_authenticated %}
+                        <a class="" href="#" title="Login" itemprop="url">{{ request.user.username}}</a>
+                        {% else %} 
+                        <a class="" href="{% url 'signpage'%}" title="Login" itemprop="url">LOGIN / REGISTER</a> 
+                        {% endif %}
+                    </div>
+                    
+                </div>                
+            </div><!-- Topbar -->
+            <div class="logo-menu-sec">
+                <div class="container">
+                    <!-- food fox logo -->
+                    <div style="padding-top: 0.8em;" class="logo"><h1 itemprop="headline"><a href="{% url 'mainpage' %}" title="Home" itemprop="url">BONDS</a></h1></div>
+                    <!-- navigation bar -->
+                    <nav>
+                        <div class="menu-sec">
+                            <ul>
+                                <li class="menu-item-has-children"><a href="{% url 'mainpage' %}" title="HOMEPAGES" itemprop="url"><span class="red-clr">Home</span>HOMEPAGE</a>
+                                    <!-- <ul class="sub-dropdown">
+                                        <li><a href="index-2.html" title="HOMEPAGE 1" itemprop="url">HOMEPAGE 1</a></li>
+                                        <li><a href="index.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
+                                    </ul> -->
+                                </li>
+                                <li class="menu-item-has-children"><a href="{% url 'mainpage' %}" title="RESTAURANTS" itemprop="url"><span class="red-clr">Find Securities</span>SECURITIES</a>
+                                   
+                                </li>
+                                <li class="menu-item-has-children"><a href="{% url 'trademainpage' %}" title="RESTAURANTS" itemprop="url"><span class="red-clr">Find Trades</span>Trades</a>
+                                   
+                                </li>
+                                
+                            </ul>
+                            <!--
+                            <a class="red-bg brd-rd4" href="register-reservation.html" title="Register" itemprop="url">REGISTER RESTAURANT</a> -->
+                        </div>
+                    </nav><!-- Navigation -->
+                </div>
+            </div><!-- Logo Menu Section -->
+        </header><!-- Header -->
+
+
+        <section>
+            <div class="block">
+				<div class="fixed-bg" style="background-image: url({% static 'front/assets/images/topbg.jpg' %});"></div>
+                <div class="page-title-wrapper text-center">
+					<div class="col-md-12 col-sm-12 col-lg-12">
+						<div class="page-title-inner">
+							<h1 itemprop="headline">Search Your Securities here</h1>
+                            <!--
+							<form class="restaurant-search-form brd-rd2">
+								<div class="row mrg10">
+									<div class="col-md-6 col-sm-5 col-lg-5 col-xs-12">
+										<div class="input-field brd-rd2"><input class="brd-rd2" type="text" placeholder="Restaurant Name"></div>
+									</div>
+									<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
+										<div class="input-field brd-rd2"><i class="fa fa-map-marker"></i><input class="brd-rd2" type="text" placeholder="Search Location"><i class="fa fa-location-arrow"></i></div>
+									</div>
+									<div class="col-md-2 col-sm-3 col-lg-3 col-xs-12">
+										<button class="brd-rd2 red-bg" type="submit">SEARCH</button>
+									</div>
+								</div>
+							</form> -->
+                            <div class="restaurant-searching style2 text-center">
+                    <div class="restaurant-searching-inner">
+                        <!--<span>Delicious <i>Food</i> </span>
+                        <h2 itemprop="headline">Book Your Table</h2> -->
+                        <form class="restaurant-search-form2 brd-rd30">
+                            <input id="tag" class="brd-rd30" type="text" placeholder="Type Keyword">
+                            <button id="get" class="brd-rd30 red-bg" type="submit" name="rest" value="" onclick="document.querySelector('#get').value = document.querySelector('#tag').value" >SEARCH</button>
+                        </form>
+                    </div>
+                </div><!-- Restaurant Searching -->
+						</div>
+					</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bread-crumbs-wrapper">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Search</a></li>
+                    <li class="breadcrumb-item active">Securities Found</li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <div class="block gray-bg bottom-padd210 top-padd30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="sec-box">
+                                <div class="sec-wrapper">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-12 col-lg-3">
+                                            <div class="sidebar left">
+                                                <!--
+                                                <div class="widget style2 Search_filters wow fadeIn" data-wow-delay="0.2s">
+                                                    <h4 class="widget-title2 sudo-bg-red" itemprop="headline">Search Filters</h4>
+                                                    <div class="widget-data">
+                                                        <ul>
+                                                            <li><a href="#" title="" itemprop="url">Fast Food</a> <span>30</span></li>
+                                                            <li><a href="#" title="" itemprop="url">North Indian</a> <span>28</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Chinese</a> <span>25</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Bakery</a> <span>11</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Mughlai</a> <span>7</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Pizza</a> <span>6</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Ice Cream</a> <span>6</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Rolls</a> <span>6</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Cafe</a> <span>5</span></li>
+                                                            <li><a href="#" title="" itemprop="url">Italian</a> <span>5</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div> -->
+                                                <form style="display: none;" class="restaurant-search-form2 brd-rd30">
+                            
+                            <button id="sector_btn" class="brd-rd30 red-bg" type="submit" name="sector" value=""  >SEARCH</button>
+                        </form>
+                                                <div class="widget style2 quick_filters wow fadeIn" data-wow-delay="0.2s">
+                                                    <h4 class="widget-title2 sudo-bg-red" itemprop="headline">Type Filters</h4>
+                                                    <div class="widget-data">
+                                                        <ul >
+                                                            <li><span class="radio-box"><input id="sector" value="type1" type="number" name="filter" id="filt1-1"></span></li>
+                                                            
+                                                            <li><span class="radio-box"><button onclick="filter1()" type="submit" ><label for="filt1-5">Search</label></button></span></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                                <form style="display: none;" class="restaurant-search-form2 brd-rd30">
+                            
+                            <button id="price_btn" class="brd-rd30 red-bg" type="submit" name="price" value=""  >SEARCH</button>
+                        </form>
+                                                <div class="widget style2 quick_filters wow fadeIn" data-wow-delay="0.2s">
+                                                    <h4 class="widget-title2 sudo-bg-red" itemprop="headline">Price Filters</h4>
+                                                    <div class="widget-data">
+                                                        <ul id="cost" onclick="filter2()">
+                                                            <li><span class="radio-box"><input value="200" type="radio" name="filter2" id="filt2-1"><label for="filt2-1">0-400</label></span></li>
+                                                            <li><span class="radio-box"><input value="600" type="radio" name="filter2" id="filt2-2"><label for="filt2-2">400-800</label></span></li>
+                                                            <li><span class="radio-box"><input value="800" type="radio" name="filter2" id="filt2-3"><label for="filt2-3">800-1200</label></span></li>
+                                                            <li><span class="radio-box"><input value="1000" type="radio" name="filter2" id="filt2-4"><label for="filt2-4">1200+</label></span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!--Sidebar -->
+                                        </div>
+                                        <div class="col-md-9 col-sm-12 col-lg-9">
+                                            <div class="title2-wrapper">
+                                                <h3 class="marginb-0" itemprop="headline">Securities </h3>
+                                            </div>
+                                            <div class="remove-ext">
+                                                <div class="row">
+
+                                                    {% for rest in rests %}
+
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.2s">
+                                                            
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">{{rest.CounterpartyId}}</span>
+                                                                <h4 itemprop="headline"><a href="security/?id={{rest.id}}" title="" itemprop="url">{{rest.BookId}}</a></h4>
+                                                                <span class="food-types"><a href="#" title="" itemprop="url">{{rest.get_status_display}}</a>, <a href="#" title="" itemprop="url"></a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i>Price ${{rest.Price}}</li>
+                                                                    <li><i class=""></i><span style="color: #7dc951">{{rest.TradeDate}}</span></li>
+                                                                    
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i>{{rest.Buy_Sell}}</span>
+                                                                
+                                                                <a class="brd-rd30" href="security/?id={{rest.id}}" title="Order Online"><i class="fa fa-angle-double-right"></i> More Details</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {% endfor %}
+
+                                                    <!--
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.3s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img2.png' %}" alt="most-popular-img2.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Burger King</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.4s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img3.png' %}" alt="most-popular-img3.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Wendy's Cafe</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.5s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img4.png' %}" alt="most-popular-img4.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Restaurant</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.6s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img5.png' %}" alt="most-popular-img5.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Domino's Pizza</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.7s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img6.png' %}" alt="most-popular-img6.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Domino's Pizza</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.8s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img7.png' %}" alt="most-popular-img7.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Domino's Pizza</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.9s">
+                                                            <div class="featured-restaurant-thumb">
+                                                                <a href="restaurant-detail.html" title="" itemprop="url"><img src="{% static 'front/assets/images/resource/most-popular-img8.png' %}" alt="most-popular-img8.png" itemprop="image"></a>
+                                                            </div>
+                                                            <div class="featured-restaurant-info">
+                                                                <span class="red-clr">5th Avenue New York 68</span>
+                                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Domino's Pizza</a></h4>
+                                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">Apple Juice</a>, <a href="#" title="" itemprop="url">BB.Q</a></span>
+                                                                <ul class="post-meta">
+                                                                    <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                    <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                                </ul>
+                                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                <span class="post-likes style2 red-clr"><i class="fa fa-heart-o"></i> 12</span>
+                                                                <a class="brd-rd30" href="restaurant-detail.html" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--
+        <section>
+            <div class="block no-padding red-bg">
+                <img class="bottom-clouds-mockup" src="{% static 'front/assets/images/resource/clouds2.png' %}" alt="clouds2.png" itemprop="image">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="app-sec">
+                                <div class="row">
+                                    <div class="col-md-4 hidden-sm col-md-offset-1 col-sm-4 col-sm-offset-0 col-lg-4 col-lg-offset-1">
+                                        <div class="app-mockup text-right overlape-110 wow fadeInUp" data-wow-delay="0.2s"><img src="{% static 'front/assets/images/resource/app-mockup.png' %}" alt="app-mockup.png" itemprop="image"></div>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1 col-sm-12 col-sm-offset-0 col-lg-6 col-lg-offset-1">
+                                        <div class="app-info">
+                                            <h4 itemprop="headline">The Best Food Delivery App</h4>
+                                            <p itemprop="description">We have a launch team that focuses on one city at a time. At the end of the day, we're a marketplace. In order to make an effective marketplace, you need critical mass. We need enough restaurants that  quality and variety</p>
+                                            <div class="app-download-btns">
+                                                <a href="#" title="Google Play Store" itemprop="url" target="_blank"><img src="{% static 'front/assets/images/resource/app-download-btn1.png' %}" alt="app-download-btn1.png" itemprop="image"></a>
+                                                <a href="#" title="Apple App Store" itemprop="url" target="_blank"><img src="{% static 'front/assets/images/resource/app-download-btn2.png' %}" alt="app-download-btn2.png" itemprop="image"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   App Section 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  red section -->
+        
+<footer>
+            <div class="block top-padd80 bottom-padd80 dark-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="footer-data">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                            <!-- <div class="logo"><h1 itemprop="headline"><a href="#" title="Home" itemprop="url"><img src="assets/images/logo.png" alt="logo.png" itemprop="image"></a></h1></div> -->
+                                            <h1 style="color: white;">BONDS</h1>
+                                            <p itemprop="description">BONDS is a website where you can search & monitor your trades ! </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                            <h4 class="widget-title" itemprop="headline">Options</h4>
+                                            <ul>
+                                                <li><a href="{% url 'mainpage' %}" title="" itemprop="url">Home</a></li>
+                                        
+                                                <!-- <li><a href="{% url 'aboutpage' %}" title="" itemprop="url">About us</a></li> -->
+                                                <li><a href="{% url 'mainpage' %}" title="" itemprop="url">Search Securities</a></li>
+                                                <li><a href="#top" title="" itemprop="url">Back to top</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
+                                            <h4 class="widget-title" itemprop="headline">Extras</h4>
+                                            <ul>
+                                                <li><a href="#" title="" itemprop="url">Offers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                            <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
+                                            <ul>
+                                               <li><i class="fa fa-map-marker"></i> Group 36 Coding Challenge</li>
+                                               <li><i class="fa fa-phone"></i> +91 86XXXXXX21</li>
+                                               <li><i class="fa fa-envelope"></i>group36@db.com</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Footer Data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- footer -->
+
+
+    </main><!-- Main Wrapper -->
+
+    <script src="{% static 'front/assets/js/jquery.min.js' %} "></script>
+    <script src="{% static 'front/assets/js/bootstrap.min.js' %} "></script>
+    <script src="{% static 'front/assets/js/plugins.js' %} "></script>
+    <script src="{% static 'front/assets/js/main.js' %} "></script>
+</body> 
+<script type="text/javascript">
+    
+    function filter1() {
+        
+        
+        document.querySelector('#sector_btn').value = document.querySelector('#sector').value ;
+       
+         document.querySelector('#sector_btn').click() ;
+    }
+    function filter2() {
+        
+        
+        document.querySelector('#price_btn').value = document.querySelector('input[name="filter2"]:checked').value ;
+       
+         document.querySelector('#price_btn').click() ;
+    }
+</script>
+
+</html>

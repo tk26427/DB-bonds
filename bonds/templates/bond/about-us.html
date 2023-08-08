@@ -1,0 +1,328 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>About us</title>
+    <link rel="shortcut icon" href="{% static 'front/assets/images/favicon.png' %}" type="image/x-icon">
+    
+
+    <link rel="stylesheet" href="{% static 'front/assets/css/icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/red-color.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/yellow-color.css' %}">
+    <link rel="stylesheet" href="{% static 'front/assets/css/responsive.css' %}">
+</head>
+<body itemscope>
+    <a href="#" id="top"></a>
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <header class="stick">
+            <div class="topbar">
+                <div class="container">
+                    <!-- top bar -->
+                    <div class="topbar-register">
+                        {% if request.user.is_authenticated %}
+                        <a class="" href="#" title="Login" itemprop="url">{{ request.user.username}}</a>
+                        {% else %} 
+                        <a class="" href="{% url 'signpage'%}" title="Login" itemprop="url">LOGIN / REGISTER</a> 
+                        {% endif %}
+                    </div>
+                    <div class="social1">
+                        <a href="https://github.com/tk26427/MinorProject" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-github"></i></a>
+                        <a href="mailto:foodfox21@gmail.com" title="Gmail" itemprop="url" target="_blank"><i class="fa fa-google"></i></a>
+                    </div>
+                </div>                
+            </div><!-- Topbar -->
+            <div class="logo-menu-sec">
+                <div class="container">
+                    <!-- food fox logo -->
+                    <div style="padding-top: 0.8em;" class="logo"><h1 itemprop="headline"><a href="{% url 'mainpage' %}" title="Home" itemprop="url">FoodFox</a></h1></div>
+                    <!-- navigation bar -->
+                    <nav>
+                        <div class="menu-sec">
+                            <ul>
+                                <li class="menu-item-has-children"><a href="{% url 'mainpage' %}" title="HOMEPAGES" itemprop="url"><span class="red-clr">Home</span>HOMEPAGE</a>
+                                    <!-- <ul class="sub-dropdown">
+                                        <li><a href="index-2.html" title="HOMEPAGE 1" itemprop="url">HOMEPAGE 1</a></li>
+                                        <li><a href="index.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
+                                    </ul> -->
+                                </li>
+                                <li class="menu-item-has-children"><a href="{% url 'mainpage' %}" title="RESTAURANTS" itemprop="url"><span class="red-clr">Find Securities</span>SECURITIES</a>
+                                    
+                                </li>
+                                
+                            </ul>
+                            <!--
+                            <a class="red-bg brd-rd4" href="register-reservation.html" title="Register" itemprop="url">REGISTER RESTAURANT</a> -->
+                        </div>
+                    </nav><!-- Navigation -->
+                </div>
+            </div><!-- Logo Menu Section -->
+        </header><!-- Header -->
+
+        <section>
+            <div class="block">
+                <div class="fixed-bg" style="background-image: url({% static 'front/assets/images/topbg.jpg' %});"></div>
+                <div class="page-title-wrapper text-center">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="page-title-inner">
+                            <h1 itemprop="headline">About Us</h1><br>
+                            <span>A Great Restaurant Reservation Website</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bread-crumbs-wrapper">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+                    <li class="breadcrumb-item active">About Us</li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <div class="block less-spacing gray-bg top-padd30">
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="sec-box">
+                                <div class="about-feat text-center wow fadeIn" data-wow-delay="0.2s">
+                                    <h2 class="title3" itemprop="headline">Welcome to BONDS</h2>
+                                    <img src="{% static 'front/assets/images/resource/about-img.jpg' %}" alt="about-img.jpg" itemprop="image">
+                                </div>
+                                <div class="block less-spacing">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                            <div class="title2-wrapper text-center">
+                                                <h2 class="sudo-bottom sudo-width70 sudo-bg-yellow" itemprop="headline">Services We Provide</h2>
+                                            </div>
+                                            <div class="remove-ext text-center">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                                        <div class="step-box wow fadeIn" data-wow-delay="0.2s">
+                                                            <i><img src="{% static 'front/assets/images/resource/setp-img1.png' %}" alt="setp-img1.png" itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
+                                                            <div class="setp-box-inner">
+                                                                <h4 itemprop="headline">Explore Restaurants</h4>
+                                                                <p itemprop="description">Visit FoodFox to find the best restaurant near your location</p>
+                                                            </div>
+                                                        </div><!-- Step Box -->
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                                        <div class="step-box wow fadeIn" data-wow-delay="0.4s">
+                                                            <i><img src="{% static 'front/assets/images/resource/setp-img2.png' %}" alt="setp-img2.png" itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
+                                                            <div class="setp-box-inner">
+                                                                <h4 itemprop="headline">Explore Various Food Options</h4>
+                                                                <p itemprop="description">Check the food menu, food quality, restaurant ratings and much more :) </p>
+                                                            </div>
+                                                        </div><!-- Step Box -->
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                                        <div class="step-box wow fadeIn" data-wow-delay="0.6s">
+                                                            <i><img src="{% static 'front/assets/images/resource/setp-img3.png' %}" alt="setp-img3.png" itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
+                                                            <div class="setp-box-inner">
+                                                                <h4 itemprop="headline">Book Your Slot on Tap</h4>
+                                                                <p itemprop="description">Get your table booked in advance in just few steps!</p>
+                                                            </div>
+                                                        </div><!-- Step Box -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="toggle-wrapper text-center bottom-padd80">
+                                    <div id="toggle" class="toggle">
+                                        <div class="toggle-item">
+                                            <h4><i class="fa fa-angle-right brd-rd50"></i> Tech-Stack</h4>
+                                            <div class="content">
+                                                <ul class="list-group">
+        
+                                                    <li class="list-group-item">JavaScript</li>
+                                                    
+                                                    <li class="list-group-item">Bootstrap</li>
+                                                    
+                                                    <li class="list-group-item">HTML</li>
+                                                    
+                                                    <li class="list-group-item">CSS</li>
+                                                    
+                                                    <li class="list-group-item">Django</li>
+                                                
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        {% comment %} <div class="toggle-item">
+                                            <h4><i class="fa fa-angle-right brd-rd50"></i> How many one page templates are added?</h4>
+                                            <div class="content">
+                                                <p>Who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences.</p>
+                                            </div>
+                                        </div> {% endcomment %}
+                                        <div class="toggle-item">
+                                            <h4><i class="fa fa-angle-right brd-rd50"></i> Services Provided </h4>
+                                            <div class="content">
+                                                <ul class="list-group">
+        
+                                                    <li class="list-group-item">Restaurant Slot Booking</li>
+                                                    
+                                                    <li class="list-group-item">Customer Based Recommendation</li>
+                                                    
+                                                    <li class="list-group-item">Advance Payment</li>
+                                                
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="toggle-item">
+                                            <h4><i class="fa fa-angle-right brd-rd50"></i> How Artificial Intelligence is used ?</h4>
+                                            <div class="content">
+                                                <p>FoodFox uses AI to provide cutomer based recommendation : both customer's and restaurant's reviews and ratings helps in providing better suggestions and better services :) </p>
+                                            </div>
+                                        </div>
+                                    </div><!-- Accordions -->
+                                </div>
+                                <!--
+                                <div class="featured-restaurant-food text-center bottom-padd80">
+                                    <div class="featured-restaurant-food-thumb">
+                                        <ul class="featured-restaurant-food-img-carousel">
+                                            <li><img src="{% static 'front/assets/images/resource/featured-restaurant-food-img1.jpg' %}" alt="featured-restaurant-food-img1.jpg" itemprop="url"> <a class="brd-rd50 vimeo" data-fancybox href="https://vimeo.com/49674259" title="Click To play" itemprop="url"><i class="fa fa-vimeo"></i></a></li>
+                                            <li><img src="{% static 'front/assets/images/resource/featured-restaurant-food-img2.jpg' %}" alt="featured-restaurant-food-img2.jpg" itemprop="url"> <a class="brd-rd50 youtube" data-fancybox href="https://www.youtube.com/embed/V6Vd1E9OL-U" title="Click To play" itemprop="url"><i class="fa fa-youtube-play"></i></a></li>
+                                            <li><img src="{% static 'front/assets/images/resource/featured-restaurant-food-img3.jpg' %}" alt="featured-restaurant-food-img3.jpg" itemprop="url"></li>
+                                            <li><img src="{% static 'front/assets/images/resource/featured-restaurant-food-img4.jpg' %}" alt="featured-restaurant-food-img4.jpg" itemprop="url"></li>
+                                            <li><img src="{% static 'front/assets/images/resource/featured-restaurant-food-img5.jpg" alt="featured-restaurant-food-img5.jpg" itemprop="url"></li>
+                                            <li><img src="{% static 'front/assets/images/resource/featured-restaurant-food-img6.jpg" alt="featured-restaurant-food-img6.jpg" itemprop="url"></li>
+                                        </ul>
+                                        <ul class="featured-restaurant-food-thumb-carousel">
+                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/featured-restaurant-food-thumb-img1.jpg' %}" alt="featured-restaurant-food-thumb-img1.jpg" itemprop="image"></li>
+                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/featured-restaurant-food-thumb-img2.jpg' %}" alt="featured-restaurant-food-thumb-img2.jpg" itemprop="image"></li>
+                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/featured-restaurant-food-thumb-img3.jpg' %}" alt="featured-restaurant-food-thumb-img3.jpg" itemprop="image"></li>
+                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/featured-restaurant-food-thumb-img4.jpg' %}" alt="featured-restaurant-food-thumb-img4.jpg" itemprop="image"></li>
+                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/featured-restaurant-food-thumb-img5.jpg' %}" alt="featured-restaurant-food-thumb-img5.jpg" itemprop="image"></li>
+                                            <li><img class="brd-rd3" src="{% static 'front/assets/images/resource/featured-restaurant-food-thumb-img6.jpg" alt="featured-restaurant-food-thumb-img6.jpg" itemprop="image"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            -->
+                                <div class="title1-wrapper text-center style2">
+                                    <div class="title1-inner">
+                                        <h2 itemprop="headline">Top Restaurants</h2>
+                                        
+                                    </div>
+                                </div>
+                                <div class="top-restaurant-carousel2 less-btm-margin">
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 1" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant1.png' %}" alt="top-restaurant1.png" itemprop="image"></a>
+                                    </div>
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 2" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant2.png' %}" alt="top-restaurant2.png" itemprop="image"></a>
+                                    </div>
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 3" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant3.png' %}" alt="top-restaurant3.png" itemprop="image"></a>
+                                    </div>
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 4" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant4.png' %}" alt="top-restaurant4.png" itemprop="image"></a>
+                                    </div>
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 5" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant5.png' %}" alt="top-restaurant5.png" itemprop="image"></a>
+                                    </div>
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 6" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant6.png' %}" alt="top-restaurant6.png" itemprop="image"></a>
+                                    </div>
+                                    <div class="top-restaurant-item">
+                                        <a href="#" title="Restaurant 7" itemprop="url"><img src="{% static 'front/assets/images/resource/top-restaurant7.png' %}" alt="top-restaurant7.png" itemprop="image"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+<footer>
+            <div class="block top-padd80 bottom-padd80 dark-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="footer-data">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                            <!-- <div class="logo"><h1 itemprop="headline"><a href="#" title="Home" itemprop="url"><img src="assets/images/logo.png" alt="logo.png" itemprop="image"></a></h1></div> -->
+                                            <h1 style="color: white;">FoodFox</h1>
+                                            <p itemprop="description">FoodFox is a website where you can search & book the best restaurant ! </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                            <h4 class="widget-title" itemprop="headline">Options</h4>
+                                            <ul>
+                                                <li><a href="{% url 'mainpage' %}" title="" itemprop="url">Home</a></li>
+                                                <li><a href="{% url 'profilepage' %}" title="" itemprop="url">Profile</a></li>
+                                                <li><a href="{% url 'aboutpage' %}" title="" itemprop="url">About us</a></li>
+                                                <li><a href="{% url 'restpage' %}" title="" itemprop="url">Search Restaurant</a></li>
+                                                <li><a href="#top" title="" itemprop="url">Back to top</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
+                                            <h4 class="widget-title" itemprop="headline">Extras</h4>
+                                            <ul>
+                                                <li><a href="#" title="" itemprop="url">Offers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                            <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
+                                            <ul>
+                                               <li><i class="fa fa-map-marker"></i> PEC (Deemed to be University), Sector-12, Chandigarh</li>
+                                               <li><i class="fa fa-phone"></i> +91 86XXXXXX21</li>
+                                               <li><i class="fa fa-envelope"></i>foodfox21@gmail.com</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Footer Data -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- footer -->
+
+
+    </main><!-- Main Wrapper -->
+
+    <script src="{% static 'front/assets/js/jquery.min.js' %} "></script>
+    <script src="{% static 'front/assets/js/bootstrap.min.js' %} "></script>
+    <script src="{% static 'front/assets/js/plugins.js' %} "></script>
+    <script src="{% static 'front/assets/js/main.js' %} "></script>
+</body> 
+
+</html>
